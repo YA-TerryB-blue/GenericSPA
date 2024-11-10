@@ -19,9 +19,9 @@ Short summary on functionality and used technologies.
 
 ![Frequently asked section](https://github.com/user-attachments/assets/f45e38c2-0be3-4cdd-a6c6-005649a9faa2)
 
+![Data Grid FluentUI for Documents](https://github.com/user-attachments/assets/0b4e3d4e-3b9b-4156-96e8-376231f339a7)
 
-
-
+![Emails](https://github.com/user-attachments/assets/ddee6abc-0527-4bfa-b629-d5b58b4f4516)
 
 
 ## Used SharePoint Framework Version
