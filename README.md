@@ -7,7 +7,22 @@ Short summary on functionality and used technologies.
 - Microsoft Graphv3
 - FluentUI 9
 
-[picture of the solution in action, if possible]
+
+
+[Generic-SPA-SPFX.webm](https://github.com/user-attachments/assets/41ba04d4-fa45-416d-b021-2381613fd6d4)
+
+
+
+![Hero section](https://github.com/user-attachments/assets/7140163d-08dc-48ad-b05b-127636d37223)
+
+![Carousel section](https://github.com/user-attachments/assets/1c3b54d1-c99d-4deb-9a0c-a79717a0061b)
+
+![Frequently asked section](https://github.com/user-attachments/assets/f45e38c2-0be3-4cdd-a6c6-005649a9faa2)
+
+
+
+
+
 
 ## Used SharePoint Framework Version
 
