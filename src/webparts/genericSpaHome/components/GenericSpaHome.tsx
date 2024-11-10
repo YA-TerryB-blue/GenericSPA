@@ -1,43 +1,98 @@
-import * as React from 'react';
-import styles from './GenericSpaHome.module.scss';
-import type { IGenericSpaHomeProps } from './IGenericSpaHomeProps';
-import { escape } from '@microsoft/sp-lodash-subset';
+// GenericSpaHome.tsx
+import * as React from "react";
+import { IGenericSpaHomeProps } from "./IGenericSpaHomeProps";
+import styles from "./GenericSpaHome.module.scss";
+import Navbar from "./NavBar";
+import HomeContent from "./HomeContent";
+import Footer from "./Footer";
+import * as MicrosoftGraph from "@microsoft/microsoft-graph-types";
+import MailList from "./MailList";
+import DocumentsContent from "./DocumentsContent";
 
-export default class GenericSpaHome extends React.Component<IGenericSpaHomeProps> {
-  public render(): React.ReactElement<IGenericSpaHomeProps> {
-    const {
-      description,
-      isDarkTheme,
-      environmentMessage,
-      hasTeamsContext,
-      userDisplayName
-    } = this.props;
+const GenericSpaHome: React.FC<IGenericSpaHomeProps> = (props) => {
+  const [selectedValue, setSelectedValue] = React.useState("home");
+  const [emails, setEmails] = React.useState<MicrosoftGraph.Message[]>([]);
+  const [files, setFiles] = React.useState<MicrosoftGraph.DriveItem[]>([]);
 
-    return (
-      <section className={`${styles.genericSpaHome} ${hasTeamsContext ? styles.teams : ''}`}>
-        <div className={styles.welcome}>
-          <img alt="" src={isDarkTheme ? require('../assets/welcome-dark.png') : require('../assets/welcome-light.png')} className={styles.welcomeImage} />
-          <h2>Well done, {escape(userDisplayName)}!</h2>
-          <div>{environmentMessage}</div>
-          <div>Web part property value: <strong>{escape(description)}</strong></div>
-        </div>
+  const sendEmail = () => {
+    window.location.href =
+      "mailto:support@email.com?subject=Support Ticket&body=Please describe your issue here.";
+  };
+
+  const onTabSelect = (
+    event: React.MouseEvent<HTMLElement>,
+    data: { value: string }
+  ) => {
+    setSelectedValue(data.value);
+  };
+
+  React.useEffect(() => {
+    if (selectedValue === "emails") {
+      fetchEmails();
+    }
+    if (selectedValue === "documents") {
+      fetchFiles();
+    }
+  }, [selectedValue]);
+
+  const fetchEmails = async () => {
+    try {
+      const client = await props.context.msGraphClientFactory.getClient("3");
+      const response = await client
+        .api("/me/messages")
+        .top(5)
+        .orderby("receivedDateTime desc")
+        .get();
+      setEmails(response.value);
+    } catch (error) {
+      console.error("Error fetching emails", error);
+    }
+  };
+
+  const fetchFiles = async () => {
+    if (!props.context || !props.context.msGraphClientFactory) {
+      console.error("Graph client is not available.");
+      return;
+    }
+
+    try {
+      const client = await props.context.msGraphClientFactory.getClient("3");
+      const response = await client
+        .api(
+          "/groups/f0b5ca8e-03ab-4a41-a70c-2f1d5a7dbb0a/drive/items/root/children"
+        )
+        .top(50)
+        .get();
+      if (response.value) {
+        setFiles(response.value);
+      } else {
+        console.error("No files found in the response.");
+      }
+    } catch (error) {
+      console.error("Error fetching files", error);
+    }
+  };
+
+  return (
+    <div className={styles.container}>
+      <Navbar
+        userName={props.context.pageContext.user.displayName}
+        onTabSelect={onTabSelect}
+        selectedValue={selectedValue}
+      />
+
+      {selectedValue === "home" && <HomeContent sendEmail={sendEmail} />}
+      {selectedValue === "documents" && <DocumentsContent files={files} />}
+      {selectedValue === "emails" && (
         <div>
-          <h3>Welcome to SharePoint Framework!</h3>
-          <p>
-            The SharePoint Framework (SPFx) is a extensibility model for Microsoft Viva, Microsoft Teams and SharePoint. It&#39;s the easiest way to extend Microsoft 365 with automatic Single Sign On, automatic hosting and industry standard tooling.
-          </p>
-          <h4>Learn more about SPFx development:</h4>
-          <ul className={styles.links}>
-            <li><a href="https://aka.ms/spfx" target="_blank" rel="noreferrer">SharePoint Framework Overview</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-graph" target="_blank" rel="noreferrer">Use Microsoft Graph in your solution</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-teams" target="_blank" rel="noreferrer">Build for Microsoft Teams using SharePoint Framework</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-viva" target="_blank" rel="noreferrer">Build for Microsoft Viva Connections using SharePoint Framework</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-store" target="_blank" rel="noreferrer">Publish SharePoint Framework applications to the marketplace</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-api" target="_blank" rel="noreferrer">SharePoint Framework API reference</a></li>
-            <li><a href="https://aka.ms/m365pnp" target="_blank" rel="noreferrer">Microsoft 365 Developer Community</a></li>
-          </ul>
+          <h3 className={styles.mailListCardHeader}>Latest Emails</h3>
+          <MailList emails={emails} />
         </div>
-      </section>
-    );
-  }
-}
+      )}
+
+      <Footer />
+    </div>
+  );
+};
+
+export default GenericSpaHome;

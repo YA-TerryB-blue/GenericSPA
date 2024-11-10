@@ -1,0 +1,45 @@
+/* Data Grid Container */
+.dataGridContainer {
+  width: 100%;
+  max-width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow-x: auto;
+
+  /* Hide the grid on small screens */
+  @media (max-width: 600px) {
+    display: none;
+  }
+}
+
+/* Data Grid Cell */
+.dataGridCell {
+  padding: 10px;
+  text-align: left;
+  background-color: #202020;
+  border-bottom: 1px solid #333;
+  color: #cccccc;
+  word-wrap: break-word;
+}
+
+.dataGridCell:hover {
+  background-color: #282828;
+}
+
+/* Header Cell */
+.headerCell {
+  font-weight: 700;
+  color: #0084ff;
+  padding: 6px 8px; /* Reduced padding */
+  text-align: left;
+  background-color: #262626;
+  border-bottom: 2px solid #333;
+  font-size: 0.5rem; /* Reduced font size */
+}
+
+.headerCell:hover {
+  background-color: #333;
+}

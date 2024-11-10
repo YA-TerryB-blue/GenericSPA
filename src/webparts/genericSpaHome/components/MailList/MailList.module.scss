@@ -1,0 +1,79 @@
+/* MailList specific styles */
+.mailListContainer {
+  width: 100%;
+  max-width: 100%; /* Prevent overflow */
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow-x: auto; /* Allows horizontal scrolling if content overflows */
+  transition: overflow-x 0.3s ease;
+}
+
+/* MailList Card */
+.mailListCard {
+  background-color: #202020;
+  color: #f0f0f0;
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #333;
+  word-wrap: break-word;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for mailListCard */
+.mailListCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Hide overflow when hover effect is active */
+.mailListContainer:hover {
+  overflow-x: hidden; /* Hide horizontal overflow */
+}
+
+/* Additional styles */
+.mailListCardHeader {
+  font-size: var(--font-size-large);
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.mailListCardContent {
+  font-size: var(--font-size-small);
+  color: #cccccc;
+  line-height: 1.5;
+}
+
+.mailListButton {
+  background-color: #0078d4;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 16px;
+}
+
+.mailListButton:hover {
+  background-color: #005a9e;
+  transform: scale(1.05);
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .mailListContainer {
+    padding: var(--padding-small) 10px;
+  }
+  .mailListCardHeader {
+    font-size: 1.2rem;
+  }
+  .mailListCardContent {
+    font-size: 0.9rem;
+  }
+}

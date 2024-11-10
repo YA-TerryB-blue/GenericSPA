@@ -4,6 +4,9 @@
 
 Short summary on functionality and used technologies.
 
+- Microsoft Graphv3
+- FluentUI 9
+
 [picture of the solution in action, if possible]
 
 ## Used SharePoint Framework Version
@@ -25,7 +28,7 @@ Short summary on functionality and used technologies.
 
 | Solution    | Author(s)                                               |
 | ----------- | ------------------------------------------------------- |
-| folder name | Author details (name, company, twitter alias with link) |
+| generic-spa | [Terry Blanc](https://github.com/DesignsbyBlanc) |
 
 ## Version history
 
@@ -56,9 +59,8 @@ Description of the extension that expands upon high-level summary above.
 
 This extension illustrates the following concepts:
 
-- topic 1
-- topic 2
-- topic 3
+- using React for building SharePoint Framework client-side web parts
+- using FLuentUI V9
 
 > Notice that better pictures and documentation will increase the sample usage and the value you are providing for others. Thanks for your submissions advance.
 
@@ -71,3 +73,4 @@ This extension illustrates the following concepts:
 - [Use Microsoft Graph in your solution](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/web-parts/get-started/using-microsoft-graph-apis)
 - [Publish SharePoint Framework applications to the Marketplace](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/publish-to-marketplace-overview)
 - [Microsoft 365 Patterns and Practices](https://aka.ms/m365pnp) - Guidance, tooling, samples and open-source controls for your Microsoft 365 development
+* [Fluent UI version 9](https://github.com/microsoft/fluentui/tree/master/packages/react-components) - Converged Fluent UI components

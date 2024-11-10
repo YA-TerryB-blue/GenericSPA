@@ -1,0 +1,75 @@
+/* General Styling */
+:root {
+    --padding-large: 40px;
+    --padding-small: 20px;
+    --font-size-large: 1.4rem;
+    --font-size-small: 1rem;
+  }
+  
+  /* Cards */
+  .card {
+    background: linear-gradient(145deg, #1c1c1c, #292929);
+    color: #f0f0f0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: var(--padding-small);
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  .cardImage {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .cardImage:hover {
+    transform: scale(1.02);
+  }
+  
+  .cardHeaderText {
+    font-size: var(--font-size-large);
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Card Caption */
+  .cardCaption {
+    color: #bbbbbb; /* Softer, lighter color for caption text */
+    font-size: 0.9rem;
+    margin-top: 8px;
+    line-height: 1.4;
+    text-align: left;
+  }
+  
+  @media (max-width: 768px) {
+    .cardCaption {
+      font-size: 0.8rem; /* Slightly smaller font size on mobile */
+      text-align: center;
+    }
+  }
+  
+  /* FreqAsked */
+  .FreqAsked {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevents horizontal overflow */
+  }
+  
+  @media (max-width: 600px) {
+    .FreqAsked {
+      grid-template-columns: 1fr; /* Single column layout on smaller screens */
+    }
+  }
+  

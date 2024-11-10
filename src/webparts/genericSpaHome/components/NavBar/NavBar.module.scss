@@ -1,0 +1,93 @@
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 16px 32px;
+  background-color: #1f1f1f;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.navbar:hover {
+  background-color: #252525;
+}
+
+.navbarTitle {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.navLinks {
+  display: flex;
+  gap: 20px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.tabList {
+  display: flex;
+  gap: 20px;
+}
+
+.tab {
+  text-decoration: none;
+  color: inherit;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+.tab:hover {
+  background-color: #333333;
+  color: #0078d4;
+}
+
+/* Hamburger Menu Icon */
+.hamburgerMenu {
+  display: none; /* Hidden by default */
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+
+.hamburgerMenu:hover {
+  color: #0078d4;
+}
+
+/* Mobile Navbar */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .tabList {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    display: none; /* Hide the tabs by default */
+  }
+
+  .tab {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .hamburgerMenu {
+    display: block; /* Show hamburger icon */
+  }
+
+  .menuVisible {
+    display: flex !important; /* Display the menu when toggled */
+  }
+}

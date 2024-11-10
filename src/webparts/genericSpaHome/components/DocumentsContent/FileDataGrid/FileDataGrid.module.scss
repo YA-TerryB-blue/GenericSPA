@@ -1,0 +1,111 @@
+/* Define Base Theme Variables */
+
+/* Colors */
+$primary-color: #0084ff;
+$background-color: #1a1a1a;
+$header-background-color: #262626;
+$cell-background-color: #202020;
+$hover-cell-background-color: #282828;
+$border-color: #333;
+$text-color: #cccccc;
+$header-text-color: #0084ff;
+$hover-header-background-color: #333;
+
+/* Spacing */
+$padding-small: 6px;
+$padding-medium: 10px; /* Adjusted to match Styles A */
+$padding-large: 20px; /* Adjusted to match Styles A */
+
+/* Font Sizes */
+$font-size-small: 0.5rem;
+$font-size-medium: 1rem;
+$font-weight-bold: 700;
+
+/* DataGrid specific styles */
+.dataGridContainer {
+  width: 100%;
+  max-width: 100%; /* Prevent overflow */
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow-x: auto; /* Allows horizontal scrolling if content overflows */
+
+  /* Hide on screens smaller than 768px */
+  @media (max-width: 768px) {
+    display: none; /* Hides the grid on small screens */
+  }
+}
+
+/* Data Grid Cell */
+.dataGridCell {
+  padding: 10px;
+  text-align: left;
+  background-color: #202020;
+  border-bottom: 1px solid #333;
+  color: #f0f0f0;
+  word-wrap: break-word;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition effects */
+
+  /* Hover effect for DataGrid Cell */
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    background-color: #282828;
+  }
+
+  /* Truncate text and ensure it doesn't break the layout */
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  /* Hide on screens smaller than 768px */
+  @media (max-width: 768px) {
+    display: none; /* Hides the grid cell on small screens */
+  }
+}
+
+/* Header Cell */
+.headerCell {
+  font-weight: 600;
+  color: #ffffff;
+  padding: 6px 8px;
+  text-align: left;
+  background-color: #262626;
+  border-bottom: 2px solid #333;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+
+  /* Hover effect for Header Cell */
+  &:hover {
+    background-color: #333;
+  }
+
+  /* Truncate text and ensure it doesn't break the layout */
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  /* Hide on screens smaller than 768px */
+  @media (max-width: 768px) {
+    display: none; /* Hides the header cell on small screens */
+  }
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .dataGridContainer {
+    padding: 10px; /* Adjust padding for small screens */
+  }
+
+  .headerCell {
+    font-size: 0.9rem; /* Adjust font size for header on smaller screens */
+  }
+
+  .dataGridCell {
+    font-size: 0.9rem; /* Adjust font size for grid cell on smaller screens */
+  }
+}
