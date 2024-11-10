@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "generic-spa-client-side-solution",
+    "id": "726913ad-1c9c-432d-b40e-35fd9cb1307c",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.20.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "generic-spa description"
+      },
+      "longDescription": {
+        "default": "generic-spa description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "generic-spa Feature",
+        "description": "The feature that activates elements of the generic-spa solution.",
+        "id": "e75006c8-5ffa-44a4-9ee3-45b1823e010e",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/generic-spa.sppkg"
+  }
+}
